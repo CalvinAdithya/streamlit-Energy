@@ -23,7 +23,6 @@ def autoplay_audio(file_path: str):
     """
     st.markdown(html_code, unsafe_allow_html=True)
 
-autoplay_audio("sound.mp3")
 
 st.title('Big Project')
 st.write('Statistika dan Sains Data')
@@ -38,6 +37,7 @@ with st.sidebar :
 if (selected =='Anggota') :
     st.title('Anggota Kelompok 4')
 
+    autoplay_audio("sound.mp3")
     
     st.write('Muhammad Calvin Adithya (2017031082)')
     st.write('Maya Puspitasari (2017031086)')
