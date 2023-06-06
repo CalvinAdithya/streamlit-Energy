@@ -6,7 +6,7 @@ from PIL import Image
 from streamlit_option_menu import option_menu
 import base64
 import random
-
+from streamlit.components.v1 import html
 
 @st.cache(show_spinner=False)
 def load_audio(file_path):
@@ -23,14 +23,14 @@ def autoplay_audio(file_path: str):
     </audio>
     """
 
-    st.markdown(html_code, unsafe_allow_html=True)
-
     if st.button("Play"):
         js_code = """
         const audio = document.getElementById("audio");
         audio.play();
         """
-        st.write(f'<script>{js_code}</script>', unsafe_allow_html=True)
+        html_code += f'<script>{js_code}</script>'
+
+    html(html_code)
 
 autoplay_audio("sound.mp3")
 
