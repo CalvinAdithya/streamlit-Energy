@@ -1,12 +1,10 @@
 streamlit-option-menu
 pandas==1.5.3
 numpy==1.23.5
-pip==23.1.2
+pip
 streamlit
-pickle
 scikit-learn
 seaborn
 flask
 gunicorn
 Pillow
-
