@@ -5,22 +5,17 @@ import pandas as pd
 from PIL import Image
 from streamlit_option_menu import option_menu
 import base64
+import random
 
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
         data = f.read()
         b64 = base64.b64encode(data).decode()
+        unique_file_name = f"sound_{random.randint(1, 1000000)}.mp3"
         html_code = f"""
         <audio id="audio" autoplay loop>
             <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
         </audio>
-        <script>
-            const audio = document.getElementById('audio');
-            audio.addEventListener('ended', function() {{
-                audio.currentTime = 0;
-                audio.play();
-            }});
-        </script>
         """
         st.markdown(html_code, unsafe_allow_html=True)
 
