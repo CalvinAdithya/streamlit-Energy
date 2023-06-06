@@ -21,7 +21,7 @@ def autoplay_audio(file_path: str):
     <audio id="audio" loop>
         <source src="data:audio/mp3;base64,{audio}" type="audio/mp3">
     </audio>
-    <button onclick="playAudio()">Putar Audio</button>
+    <button onclick="playAudio()">&#9658;</button>
     <script>
         function playAudio() {{
             const audio = document.getElementById("audio");
