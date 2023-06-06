@@ -28,6 +28,18 @@ with st.sidebar :
      'RFC'],                       
     default_index=0)
 
+if (selected =='Anggota') :
+    st.title('Anggota Kelompok 4')
+
+    
+    st.write('Muhammad Calvin Adithya (2017031082)')
+    st.write('Maya Puspitasari (2017031086)')
+    st.write('Cindy Anisya (2017031074)')
+
+    image= Image.open('pp.jpg')
+    st.image(image)
+    
+    
 if (selected == 'Data Set') :
     st.title('Data Set')
     data = pd.read_csv("https://raw.githubusercontent.com/CalvinAdithya/streamlit-crime/main/Energy%20data%201990%20-%202020.csv")
@@ -213,15 +225,6 @@ if (selected == 'RFC') :
     st.success(Prediksi_data_Energy)
 
 
-if (selected =='Anggota') :
-    st.title('Anggota Kelompok 4')
 
-    
-    st.write('Muhammad Calvin Adithya (2017031082)')
-    st.write('Maya Puspitasari (2017031086)')
-    st.write('Cindy Anisya (2017031074)')
-
-    image= Image.open('pp.jpg')
-    st.image(image)
 
 
