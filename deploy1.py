@@ -26,7 +26,9 @@ def autoplay_audio(file_path: str):
 
 st.title('Big Project')
 st.write('Statistika dan Sains Data')
-        
+
+autoplay_audio("sound.mp3")
+
 with st.sidebar :
     selected = option_menu('Big Project',
     ['Anggota',
@@ -36,8 +38,6 @@ with st.sidebar :
 
 if (selected =='Anggota') :
     st.title('Anggota Kelompok 4')
-
-autoplay_audio("sound.mp3")
     
     st.write('Muhammad Calvin Adithya (2017031082)')
     st.write('Maya Puspitasari (2017031086)')
