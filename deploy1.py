@@ -23,11 +23,11 @@ def autoplay_audio(file_path: str):
     """
     st.markdown(html_code, unsafe_allow_html=True)
 
+autoplay_audio("sound.mp3")
+
 st.title('Big Project')
 st.write('Statistika dan Sains Data')
         
-autoplay_audio("sound.mp3")
-
 with st.sidebar :
     selected = option_menu('Big Project',
     ['Anggota',
