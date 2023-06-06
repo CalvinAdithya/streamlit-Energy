@@ -3,8 +3,8 @@ import numpy as np
 import streamlit as st
 import pandas as pd
 from PIL import Image
-
 from streamlit_option_menu import option_menu
+import base64
 
 with st.sidebar :
     selected = option_menu('Big Project',
@@ -208,3 +208,25 @@ if (selected =='Anggota') :
 
     image= Image.open('pp.jpg')
     st.image(image)
+
+
+def autoplay_audio(file_path: str):
+    with open(file_path, "rb") as f:
+        data = f.read()
+        b64 = base64.b64encode(data).decode()
+        html_code = f"""
+        <audio id="audio" autoplay>
+            <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
+        </audio>
+        <script>
+            const audio = document.getElementById('audio');
+            audio.addEventListener('ended', function() {{
+                audio.currentTime = 0;
+                audio.play();
+            }});
+        </script>
+        """
+        st.markdown(html_code, unsafe_allow_html=True)
+
+autoplay_audio("sound.mp3")
+    
