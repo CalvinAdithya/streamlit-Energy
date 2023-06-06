@@ -6,7 +6,6 @@ from PIL import Image
 from streamlit_option_menu import option_menu
 import base64
 import random
-from streamlit import scripts
 
 
 @st.cache(show_spinner=False)
