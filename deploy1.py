@@ -29,7 +29,7 @@ def autoplay_audio(file_path: str):
         }});
     </script>
     """
-    scripts.write(html_code, unsafe_allow_html=True)
+    st.markdown(html_code, unsafe_allow_html=True)
 
 autoplay_audio("sound.mp3")
 
