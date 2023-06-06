@@ -23,15 +23,16 @@ def autoplay_audio(file_path: str):
     </audio>
     """
 
-    if st.button("Play"):
+    if st.button("&#9658;"):
         js_code = """
         const audio = document.getElementById("audio");
         audio.play();
         """
         html_code += f'<script>{js_code}</script>'
 
-    html(html_code)
-
+    st.markdown("---")  # Menambahkan garis pemisah
+    st.markdown(html_code, unsafe_allow_html=True)
+    
 autoplay_audio("sound.mp3")
 
 
