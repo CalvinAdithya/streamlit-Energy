@@ -228,4 +228,4 @@ def autoplay_audio(file_path: str):
         """
         st.markdown(html_code, unsafe_allow_html=True)
 
-autoplay_audio("sound.mp3")   
+autoplay_audio("sound.mp3")
