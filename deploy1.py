@@ -18,19 +18,11 @@ def autoplay_audio(file_path: str):
     audio = load_audio(file_path)
     unique_file_name = f"sound_{random.randint(1, 1000000)}.mp3"
     html_code = f"""
-    <audio id="audio" loop>
+    <audio id="audio" autoplay loop>
         <source src="data:audio/mp3;base64,{audio}" type="audio/mp3">
     </audio>
     """
-
     st.markdown(html_code, unsafe_allow_html=True)
-
-    if st.button("Play"):
-        js_code = """
-        const audio = document.getElementById("audio");
-        audio.play();
-        """
-        st.write(f'<script>{js_code}</script>', unsafe_allow_html=True)
 
 autoplay_audio("sound.mp3")
 
