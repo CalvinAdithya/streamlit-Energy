@@ -8,6 +8,11 @@ import base64
 import random
 from streamlit.components.v1 import html
 
+import base64
+import random
+import streamlit as st
+from streamlit.components.v1 import html
+
 @st.cache(show_spinner=False)
 def load_audio(file_path):
     with open(file_path, "rb") as f:
@@ -23,17 +28,21 @@ def autoplay_audio(file_path: str):
     </audio>
     """
 
-    if st.button("&#9658;"):
+    if st.button("Play"):
         js_code = """
         const audio = document.getElementById("audio");
-        audio.&#9658;();
+        audio.play();
         """
         html_code += f'<script>{js_code}</script>'
 
     st.markdown("---")  # Menambahkan garis pemisah
     st.markdown(html_code, unsafe_allow_html=True)
-    
+
+st.title('Big Project')
+st.write('Statistika dan Sains Data')
+
 autoplay_audio("sound.mp3")
+
 
 
 with st.sidebar :
