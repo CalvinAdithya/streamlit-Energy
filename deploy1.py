@@ -7,22 +7,24 @@ from streamlit_option_menu import option_menu
 import base64
 import random
 
+@st.cache(show_spinner=False)
 def load_audio(file_path):
     with open(file_path, "rb") as f:
         data = f.read()
         return base64.b64encode(data).decode()
 
-def autoplay_audio(file_path: str, loop: bool = False):
+def autoplay_audio(file_path: str):
     audio = load_audio(file_path)
-    loop_value = "loop" if loop else ""
+    unique_file_name = f"sound_{random.randint(1, 1000000)}.mp3"
     html_code = f"""
-    <audio controls autoplay {loop_value}>
+    <audio id="audio" autoplay loop>
         <source src="data:audio/mp3;base64,{audio}" type="audio/mp3">
     </audio>
     """
-    st.markdown(html_code, unsafe_allow_html=True)
+    audio_placeholder = st.empty()
+    audio_placeholder.markdown(html_code, unsafe_allow_html=True)
 
-autoplay_audio("sound.mp3", loop=True)
+autoplay_audio("sound.mp3")
 
 
 st.title('Big Project')
