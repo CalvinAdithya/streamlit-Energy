@@ -22,17 +22,14 @@ def autoplay_audio(file_path: str):
     </audio>
     <script>
         const audio = document.getElementById("audio");
-        audio.addEventListener("ended", function() {{
-            audio.currentTime = 0;
+        audio.addEventListener("canplaythrough", function() {{
             audio.play();
         }});
     </script>
     """
-    audio_placeholder = st.empty()
-    audio_placeholder.markdown(html_code, unsafe_allow_html=True)
+    scripts.write(html_code, unsafe_allow_html=True)
 
 autoplay_audio("sound.mp3")
-
 
 
 st.title('Big Project')
