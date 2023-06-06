@@ -30,7 +30,6 @@ def autoplay_audio(file_path: str):
         """
         html_code += f'<script>{js_code}</script>'
 
-    st.markdown("---")  # Menambahkan garis pemisah
     st.markdown(html_code, unsafe_allow_html=True)
 
 autoplay_audio("sound.mp3")
