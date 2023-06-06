@@ -7,25 +7,22 @@ from streamlit_option_menu import option_menu
 import base64
 import random
 
-def autoplay_audio(file_path: str):
+def autoplay_audio(file_path: str, loop: bool = False):
+    from IPython.display import HTML
+
     with open(file_path, "rb") as f:
         data = f.read()
         b64 = base64.b64encode(data).decode()
-        html_code = f"""
-        <audio id="audio" autoplay>
+        loop_value = "loop" if loop else ""
+        html = f"""
+            <audio controls autoplay {loop_value}>
             <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
-        </audio>
-        <script>
-            const audio = document.getElementById('audio');
-            audio.addEventListener('ended', function() {{
-                audio.currentTime = 0;
-                audio.play();
-            }});
-        </script>
-        """
-        st.markdown(html_code, unsafe_allow_html=True)
+            </audio>
+            """
+        return HTML(html)
 
-autoplay_audio("sound.mp3")
+
+autoplay_audio("sound.mp3", loop = True)
 
 
 st.title('Big Project')
