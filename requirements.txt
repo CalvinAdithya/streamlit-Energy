@@ -7,3 +7,4 @@ seaborn
 flask
 gunicorn
 Pillow
+base64
