@@ -23,7 +23,7 @@ def autoplay_audio(file_path: str):
     </audio>
     """
 
-    if st.button("&#9658;"):
+    if st.button(">"):
         js_code = """
         const audio = document.getElementById("audio");
         audio.play();
