@@ -26,9 +26,6 @@ def autoplay_audio(file_path: str):
             audio.currentTime = 0;
             audio.play();
         }});
-        window.addEventListener("load", function() {{
-            audio.play();
-        }});
     </script>
     """
     audio_placeholder = st.empty()
