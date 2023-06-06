@@ -3,6 +3,7 @@ import numpy as np
 import streamlit as st
 import pandas as pd
 from PIL import Image
+
 from streamlit_option_menu import option_menu
 
 with st.sidebar :
