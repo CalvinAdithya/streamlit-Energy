@@ -21,15 +21,16 @@ def autoplay_audio(file_path: str):
     <audio id="audio" loop>
         <source src="data:audio/mp3;base64,{audio}" type="audio/mp3">
     </audio>
-    <button onclick="playAudio()">Play</button>
-    <script>
-        function playAudio() {{
-            const audio = document.getElementById("audio");
-            audio.play();
-        }}
-    </script>
     """
+
     st.markdown(html_code, unsafe_allow_html=True)
+
+    if st.button("Play"):
+        js_code = """
+        const audio = document.getElementById("audio");
+        audio.play();
+        """
+        st.write(f'<script>{js_code}</script>', unsafe_allow_html=True)
 
 autoplay_audio("sound.mp3")
 
