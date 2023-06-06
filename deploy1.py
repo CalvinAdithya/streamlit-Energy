@@ -205,3 +205,6 @@ if (selected =='Anggota') :
     st.write('Muhammad Calvin Adithya (2017031082)')
     st.write('Maya Puspitasari (2017031086)')
     st.write('Cindy Anisya (2017031074)')
+
+    image= Image.open('pp.jpg')
+    st.image(image)
