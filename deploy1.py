@@ -11,7 +11,7 @@ def autoplay_audio(file_path: str):
         data = f.read()
         b64 = base64.b64encode(data).decode()
         html_code = f"""
-        <audio id="audio" autoplay>
+        <audio id="audio" autoplay loop>
             <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
         </audio>
         <script>
