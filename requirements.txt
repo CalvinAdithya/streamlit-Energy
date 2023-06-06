@@ -7,4 +7,4 @@ seaborn
 flask
 gunicorn
 Pillow
-
+pip
