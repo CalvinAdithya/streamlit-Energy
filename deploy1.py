@@ -41,11 +41,9 @@ def autoplay_audio(file_path: str):
         html_code += f'<script>{js_code}</script>'
 
     html(html_code)
+    st.markdown("---")
     st.markdown(html_code, unsafe_allow_html=True)
-    
 autoplay_audio("sound.mp3")
-
-
 
 with st.sidebar :
     selected = option_menu('Big Project',
