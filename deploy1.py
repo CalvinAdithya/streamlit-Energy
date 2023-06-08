@@ -106,7 +106,7 @@ if (selected == 'RFC') :
     
     #kode untuk predikisi
     Prediksi_data_Energy =''
-    if st.button("Prediksi data Energy SEKARANG"):
+    if st.button("Prediksi Data Energi dari Negara:"):
         # Mengubah argumen menjadi array numpy dua dimensi
         sc=scale.transform([[Oil_products_domestic_consumption_Mt,Refined_oil_products_production_Mt,Natural_gas_domestic_consumption_bcm,Energy_intensity_of_GDP_at_constant_purchasing_power_parities_koe_15p,Electricity_production_TWh,Electricity_domestic_consumption_TWh,Crude_oil_production_Mt]])
         # Melakukan prediksi
