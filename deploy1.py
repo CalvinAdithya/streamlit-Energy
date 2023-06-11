@@ -57,7 +57,7 @@ if (selected == 'ANN') :
     st.title("Prediksi Konsumsi Energi")
    
     country_input = st.selectbox("Pilih negara:", countries)
-    year_input = st.number_input("Year:", min_value=2022, max_value=2030, step=1)
+    year_input = st.number_input("Year:", min_value=2022, step=1)
 
     # Mengeksekusi prediksi saat tombol dipencet
     if st.button("Prediksi"):
