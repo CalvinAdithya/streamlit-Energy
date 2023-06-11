@@ -24,6 +24,8 @@ if (selected == 'Data Set') :
 if (selected == 'ANN') :
     st.title('')
 
+image= Image.open('energy.png')
+st.image(image)
 
     # Load the saved model
     model = joblib.load('energy_consumption_model.joblib')
@@ -81,9 +83,6 @@ if (selected == 'ANN') :
 
 if (selected =='Anggota') :
     st.title('Anggota Kelompok 4')
-    
-    image= Image.open('pp.jpg')
-    st.image(image)
     
     st.write('Muhammad Calvin Adithya (2017031082)')
     st.write('Maya Puspitasari (2017031086)')
