@@ -81,7 +81,9 @@ if (selected == 'ANN') :
 
 if (selected =='Anggota') :
     st.title('Anggota Kelompok 4')
-
+    
+    image= Image.open('pp.jpg')
+    st.image(image)
     
     st.write('Muhammad Calvin Adithya (2017031082)')
     st.write('Maya Puspitasari (2017031086)')
