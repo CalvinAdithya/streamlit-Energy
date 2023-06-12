@@ -37,9 +37,6 @@ if (selected == 'ANN') :
         df1 = pickle.load(file)
 
     from sklearn.preprocessing import LabelEncoder, MinMaxScaler
-
-
-    from sklearn.preprocessing import LabelEncoder, MinMaxScaler
     from sklearn.linear_model import LinearRegression
 
     # Membuat objek LabelEncoder
