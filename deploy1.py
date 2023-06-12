@@ -61,7 +61,7 @@ if (selected == 'ANN') :
 
     st.title("Prediksi Konsumsi Energi")
     country_input = st.selectbox("Pilih negara:", countries)
-    year_input = int(st.text_input("Masukkan tahun:", min_value=2022, step=1))
+    year = st.number_input("Year", min_value=2022, max_value=2030, step=1)
     CO2_intensity_at_constant_purchasing_power_parities = int(st.number_input("CO2 intensity at constant purchasing power parities (kCO2/$15p):"))
     Total_energy_production = int(st.number_input("Total energy production (Mtoe):"))
     Share_of_renewables_in_electricity_production = int(st.number_input("Share of renewables in electricity production (%):"))
@@ -81,7 +81,7 @@ if (selected == 'ANN') :
         country_encoded = label_encoder.transform([country_input])[0]
     
         # Mengubah input menjadi array 2 dimensi
-        input_data = [[country_encoded, year_input, CO2_intensity_at_constant_purchasing_power_parities, Total_energy_production, Share_of_renewables_in_electricity_production, Share_of_electricity_in_total_final_energy_consumption, Oil_products_domestic_consumption, Refined_oil_products_production, Natural_gas_domestic_consumption, Energy_intensity_of_GDP_at_constant_purchasing_power_parities, Electricity_production, Electricity_domestic_consumption, Crude_oil_production]]
+        input_data = [[country_encoded, year, CO2_intensity_at_constant_purchasing_power_parities, Total_energy_production, Share_of_renewables_in_electricity_production, Share_of_electricity_in_total_final_energy_consumption, Oil_products_domestic_consumption, Refined_oil_products_production, Natural_gas_domestic_consumption, Energy_intensity_of_GDP_at_constant_purchasing_power_parities, Electricity_production, Electricity_domestic_consumption, Crude_oil_production]]
         input_data_scaled = scaler.transform(input_data)
     
         # Melakukan prediksi
