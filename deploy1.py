@@ -59,21 +59,21 @@ if (selected == 'ANN') :
     model = LinearRegression()
     model.fit(X_scaled, y)
 
-    # Membuat tampilan input di Streamlit
-    st.title("Prediksi Konsumsi Energi")
+   st.title("Prediksi Konsumsi Energi")
     country_input = st.selectbox("Pilih negara:", countries)
     year_input = int(st.number_input("Masukkan tahun:"))
-    CO2_intensity_at_constant_purchasing_power_paritie = int(st.number_input("CO2 intensity at constant purchasing power parities (kCO2/$15p)"))
-    Total_energy_production = int(st.number_input("Total energy production (Mtoe)"))
-    Share_of_renewables_in_electricity_production = int(st.number_input("Share of renewables in electricity production (%)"))
-    Share_of_electricity_in_total_final_energy_consumption = int(st.number_input("Share of electricity in total final energy consumption (%)"))
-    Oil_products_domestic_consumption = int(st.number_input("Oil products domestic consumption (Mt)"))
-    Refined_oil_products_production = int(st.number_input("Refined oil products production (Mt)"))
-    Natural_gas_domestic_consumption = int(st.number_input("Natural gas domestic consumption (bcm)"))
-    Energy_intensity_of_GDP_at_constant_purchasing_power_parities = int(st.number_input("Energy intensity of GDP at constant purchasing power parities (koe/$15p)"))
-    Electricity_production = int(st.number_input("Electricity production (TWh)"))
-    Electricity_domestic_consumption = int(st.number_input("Electricity domestic consumption (TWh)"))
-    Crude_oil_production = int(st.number_input("Crude oil production (Mt)"))
+    CO2_intensity_at_constant_purchasing_power_parities = int(st.number_input("CO2 intensity at constant purchasing power parities (kCO2/$15p):"))
+    Total_energy_production = int(st.number_input("Total energy production (Mtoe):"))
+    Share_of_renewables_in_electricity_production = int(st.number_input("Share of renewables in electricity production (%):"))
+    Share_of_electricity_in_total_final_energy_consumption = int(st.number_input("Share of electricity in total final energy consumption (%):"))
+    Oil_products_domestic_consumption = int(st.number_input("Oil products domestic consumption (Mt):"))
+    Refined_oil_products_production = int(st.number_input("Refined oil products production (Mt):"))
+    Natural_gas_domestic_consumption = int(st.number_input("Natural gas domestic consumption (bcm):"))
+    Energy_intensity_of_GDP_at_constant_purchasing_power_parities = int(st.number_input("Energy intensity of GDP at constant purchasing power parities (koe/$15p):"))
+    Electricity_production = int(st.number_input("Electricity production (TWh):"))
+    Electricity_domestic_consumption = int(st.number_input("Electricity domestic consumption (TWh):"))
+    Crude_oil_production = int(st.number_input("Crude oil production (Mt):"))
+
 
     # Mengeksekusi prediksi saat tombol dipencet
     if st.button("Prediksi"):
