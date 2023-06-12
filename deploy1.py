@@ -59,7 +59,7 @@ if (selected == 'ANN') :
     model = LinearRegression()
     model.fit(X_scaled, y)
 
-   st.title("Prediksi Konsumsi Energi")
+    st.title("Prediksi Konsumsi Energi")
     country_input = st.selectbox("Pilih negara:", countries)
     year_input = int(st.number_input("Masukkan tahun:"))
     CO2_intensity_at_constant_purchasing_power_parities = int(st.number_input("CO2 intensity at constant purchasing power parities (kCO2/$15p):"))
