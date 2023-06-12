@@ -26,9 +26,6 @@ if (selected == 'ANN') :
     image= Image.open('energy.png')
     st.image(image)
 
-
-   
-
     # Load the saved model
     model = joblib.load('energy_consumption_model.joblib')
 
