@@ -27,6 +27,8 @@ if (selected == 'ANN') :
     st.image(image)
 
 
+   
+
     # Load the saved model
     model = joblib.load('energy_consumption_model.joblib')
 
@@ -34,7 +36,11 @@ if (selected == 'ANN') :
     with open('df.pkl', 'rb') as file:
         df1 = pickle.load(file)
 
+    from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 
+
+    from sklearn.preprocessing import LabelEncoder, MinMaxScaler
+    from sklearn.linear_model import LinearRegression
 
     # Membuat objek LabelEncoder
     label_encoder = LabelEncoder()
@@ -49,17 +55,31 @@ if (selected == 'ANN') :
     country_mapping = dict(zip(range(len(countries)), countries))
 
     # Separate features and target variable
-    X = df1[['country', 'Year']]
+    X = df1[['country', 'Year','CO2 intensity at constant purchasing power parities (kCO2/$15p)', 'Total energy production (Mtoe)', 'Share of renewables in electricity production (%)', 'Share of electricity in total final energy consumption (%)', 'Oil products domestic consumption (Mt)', 'Refined oil products production (Mt)', 'Natural gas domestic consumption (bcm)', 'Energy intensity of GDP at constant purchasing power parities (koe/$15p)', 'Electricity production (TWh)', 'Electricity domestic consumption (TWh)', 'Crude oil production (Mt)']]
     y = df1[['Total energy consumption (Mtoe)']]
 
     scaler = MinMaxScaler()
     X_scaled = scaler.fit_transform(X)
-    
+
+    # Membuat model Linear Regression dan melatihnya
+    model = LinearRegression()
+    model.fit(X_scaled, y)
+
     # Membuat tampilan input di Streamlit
     st.title("Prediksi Konsumsi Energi")
-   
     country_input = st.selectbox("Pilih negara:", countries)
-    year_input = st.number_input("Year:", min_value=2021, step=1)
+    year_input = st.number_input("Masukkan tahun:")
+    CO2_intensity_at_constant_purchasing_power_paritie = st.number_input("CO2 intensity at constant purchasing power parities (kCO2/$15p)")
+    Total_energy_production = st.number_input("Total energy production (Mtoe)")
+    Share_of_renewables_in_electricity_production = st.number_input("Share of renewables in electricity production (%)")
+    Share_of_electricity_in_total_final_energy_consumption = st.number_input("Share of electricity in total final energy consumption (%)")
+    Oil_products_domestic_consumption = st.number_input("Oil products domestic consumption (Mt)")
+    Refined_oil_products_production = st.number_input("Refined oil products production (Mt)")
+    Natural_gas_domestic_consumption = st.number_input("Natural gas domestic consumption (bcm)")
+    Energy_intensity_of_GDP_at_constant_purchasing_power_parities = st.number_input("Energy intensity of GDP at constant purchasing power parities (koe/$15p)")
+    Electricity_production = st.number_input("Electricity production (TWh)")
+    Electricity_domestic_consumption = st.number_input("Electricity domestic consumption (TWh)")
+    Crude_oil_production = st.number_input("Crude oil production (Mt)")
 
     # Mengeksekusi prediksi saat tombol dipencet
     if st.button("Prediksi"):
@@ -67,7 +87,7 @@ if (selected == 'ANN') :
         country_encoded = label_encoder.transform([country_input])[0]
     
         # Mengubah input menjadi array 2 dimensi
-        input_data = [[country_encoded, year_input]]
+        input_data = [[country_encoded, year_input, CO2_intensity_at_constant_purchasing_power_paritie, Total_energy_production, Share_of_renewables_in_electricity_production, Share_of_electricity_in_total_final_energy_consumption, Oil_products_domestic_consumption, Refined_oil_products_production, Natural_gas_domestic_consumption, Energy_intensity_of_GDP_at_constant_purchasing_power_parities, Electricity_production, Electricity_domestic_consumption, Crude_oil_production]]
         input_data_scaled = scaler.transform(input_data)
     
         # Melakukan prediksi
@@ -77,7 +97,7 @@ if (selected == 'ANN') :
         predicted_country = label_encoder.inverse_transform([country_encoded])[0]
     
         # Menampilkan hasil prediksi
-        st.write("Prediksi konsumsi energi di negara dengan code", predicted_country, "pada tahun", year_input, "dengan satuan (Mtoe):", prediction)
+        st.write("Prediksi konsumsi energi di", predicted_country, "pada tahun", year_input, ":", prediction)
 
 
 
