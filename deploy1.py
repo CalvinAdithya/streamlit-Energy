@@ -74,7 +74,6 @@ if (selected == 'ANN') :
     Electricity_domestic_consumption = int(st.text_input("Electricity domestic consumption (TWh):"))
     Crude_oil_production = int(st.text_input("Crude oil production (Mt):"))
 
-
     # Mengeksekusi prediksi saat tombol dipencet
     if st.button("Prediksi"):
         # Mengubah input negara menjadi nilai numerik dengan inverse_transform
