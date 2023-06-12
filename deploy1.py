@@ -61,7 +61,7 @@ if (selected == 'ANN') :
 
     st.title("Prediksi Konsumsi Energi")
     country_input = st.selectbox("Pilih negara:", countries)
-    year = st.number_input("Year", min_value=2022, max_value=2030, step=1)
+    year = st.number_input("Year", min_value=2021, step=1)
     CO2_intensity_at_constant_purchasing_power_parities = int(st.number_input("CO2 intensity at constant purchasing power parities (kCO2/$15p):"))
     Total_energy_production = int(st.number_input("Total energy production (Mtoe):"))
     Share_of_renewables_in_electricity_production = int(st.number_input("Share of renewables in electricity production (%):"))
