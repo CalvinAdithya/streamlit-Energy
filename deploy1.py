@@ -91,7 +91,7 @@ if (selected == 'ANN') :
         predicted_country = label_encoder.inverse_transform([country_encoded])[0]
     
         # Menampilkan hasil prediksi
-        st.write("Prediksi konsumsi energi di", predicted_country, "pada tahun", year_input, ":", prediction)
+        st.write("Prediksi konsumsi energi di", predicted_country, "pada tahun", year, ":", prediction)
 
 
 
